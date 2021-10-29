@@ -6,6 +6,7 @@ import DefaultLayout from '~/layouts/defaultLayout';
 import { calendarPageStyles } from '~/styles/calendarPageStyles';
 import BigCalendar from '~/components/Calendar/BigCalendar';
 import { useEventsQuery, useGetBookingsQuery } from '~/generated/graphql';
+import { isServer } from '~/functions/isServer';
 
 export default function CalendarPage() {
   const { data: eventsData, loading: eventsLoading } = useEventsQuery();
@@ -27,7 +28,7 @@ export default function CalendarPage() {
           <Grid item xs={12} sm={12} md={12} lg={12}>
             <h2>{t('calendar')}</h2>
             <Paper style={{ padding: '0.5rem' }}>
-              {!eventsLoading && !bookingsLoading && (
+              {eventsData && !eventsLoading && !bookingsLoading && (
                 <BigCalendar
                   events={eventsData.events}
                   bookings={bookingsData.bookingRequests}

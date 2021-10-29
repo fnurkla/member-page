@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { ToolbarProps, Navigate, View } from 'react-big-calendar';
 import { IconButton, Stack, Typography } from '@mui/material';
 
-import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
+import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 
 export default function Toolbar(props: ToolbarProps) {
   const [anchorEl, setAnchorEl] = useState(null);
